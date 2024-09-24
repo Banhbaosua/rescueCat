@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] PlayerAnimation playerAnimation;
     [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] JoyStick joyStick;
     
     public void Initialize()
     {
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        playerMovement.Move();
+        if(joyStick.Touched)
+            playerMovement.Move(joyStick.Direction);
     }
 }

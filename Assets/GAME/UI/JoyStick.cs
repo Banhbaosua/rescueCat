@@ -14,10 +14,13 @@ public class JoyStick : MonoBehaviour
     private Vector2 _joystickPos;
     private Vector2 _direction;
     public Vector2 Direction => _direction;
+    private bool touched;
+    public bool Touched => touched;
     private void OnFingerUp(Finger obj)
     {
         background.gameObject.SetActive(false);
         _input = Vector2.zero;
+        touched = false;
     }
     private void OnFingerDown(Finger finger)
     {
@@ -27,6 +30,7 @@ public class JoyStick : MonoBehaviour
         background.position = fingerPos;
         handle.position = fingerPos;
         handle.anchoredPosition = Vector2.zero;
+        touched = true;
     }
 
     void OnFingerMove(Finger finger)
