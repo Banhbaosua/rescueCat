@@ -1037,6 +1037,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400338759}
   - component: {fileID: 400338761}
+  - component: {fileID: 400338762}
   m_Layer: 0
   m_Name: Cat5
   m_TagString: Untagged
@@ -1087,6 +1088,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &400338762
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400338758}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &466174472
 GameObject:
   m_ObjectHideFlags: 0
@@ -2874,6 +2898,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1135029564}
   - component: {fileID: 1135029566}
+  - component: {fileID: 1135029567}
   m_Layer: 0
   m_Name: Cat3
   m_TagString: Untagged
@@ -2924,6 +2949,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &1135029567
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135029563}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1141131250
 GameObject:
   m_ObjectHideFlags: 0
@@ -3195,6 +3243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1219274058}
   - component: {fileID: 1219274060}
+  - component: {fileID: 1219274061}
   m_Layer: 0
   m_Name: Cat4
   m_TagString: Untagged
@@ -3245,6 +3294,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &1219274061
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219274057}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1221538303
 GameObject:
   m_ObjectHideFlags: 0
@@ -3379,6 +3451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1283143351}
   - component: {fileID: 1283143353}
+  - component: {fileID: 1283143354}
   m_Layer: 0
   m_Name: Cat2
   m_TagString: Untagged
@@ -3429,6 +3502,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &1283143354
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283143350}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1322440071
 GameObject:
   m_ObjectHideFlags: 0
@@ -4865,6 +4961,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2068453253}
   - component: {fileID: 2068453255}
+  - component: {fileID: 2068453256}
   m_Layer: 0
   m_Name: Cat6
   m_TagString: Untagged
@@ -4915,6 +5012,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &2068453256
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068453252}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2076742550
 GameObject:
   m_ObjectHideFlags: 0
@@ -6489,6 +6609,7 @@ GameObject:
   - component: {fileID: 4568947325655484848}
   - component: {fileID: 4568947325655484846}
   - component: {fileID: 4568947325655484847}
+  - component: {fileID: 4568947325655484849}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -8838,7 +8959,7 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 0
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -8857,7 +8978,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 4568947325655484845}
   playerMovementData: {fileID: 11400000, guid: 8771ff6577acadf48974beb71493c637, type: 2}
-  joyStick: {fileID: 1141131254}
 --- !u!114 &4568947325655484847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8885,7 +9005,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnimation: {fileID: 4568947325655484847}
   playerMovement: {fileID: 4568947325655484846}
-  joyStick: {fileID: 0}
+  joyStick: {fileID: 1141131254}
+--- !u!136 &4568947325655484849
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790010566041254515}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!4 &4591091508893307350
 Transform:
   m_ObjectHideFlags: 0
@@ -11156,6 +11299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4615909670887396603}
   - component: {fileID: 2902254503562193160}
+  - component: {fileID: 8342011054147402461}
   m_Layer: 0
   m_Name: Cat1
   m_TagString: Untagged
@@ -11163,6 +11307,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!136 &8342011054147402461
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8342011054147402460}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &8459393070787057555
 Transform:
   m_ObjectHideFlags: 0
