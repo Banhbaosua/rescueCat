@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4164f5158a29204a8426443b7c3d9d6, type: 3}
   m_Name: PlayerMovementData
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 0.5
   speedBoost: 0
-  stamina: 0
+  stamina: 50

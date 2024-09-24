@@ -7,8 +7,6 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] CharacterController characterController;
     [SerializeField] PlayerMovementData playerMovementData;
-    [Header("Movement Input")]
-    [SerializeField] JoyStick joyStick;
     private Vector3 _velocity;
     private float _speed => playerMovementData.Speed;
     private float _stamina => playerMovementData.Stamina;
