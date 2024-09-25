@@ -7,19 +7,24 @@ using Watermelon;
 public class SpeedMeterController : MonoBehaviour
 {
     [SerializeField] RectTransform arrow;
-
+    private PlayerMovement playerMovement;
+    private float originalEulerZ;
     private void Start()
     {
-    }
-
-    private void Update()
-    {
-        RotateArrow();
+        originalEulerZ = arrow.localEulerAngles.z;
+        playerMovement = FindObjectOfType<PlayerMovement>();
+        playerMovement.AddOnMoveAction(RotateArrow);
+        playerMovement.AddOnStopAction(ResetArrow);
     }
 
     void RotateArrow()
     {
         arrow.transform.DORotate(new Vector3(0,0,90),0.5f);
+    }
+
+    void ResetArrow()
+    {
+        arrow.transform.DORotate(new Vector3(0, 0, originalEulerZ), 0.5f);
     }
     
 }

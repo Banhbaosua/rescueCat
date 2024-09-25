@@ -10,8 +10,15 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _velocity;
     private float _speed => playerMovementData.Speed;
     private float _stamina => playerMovementData.Stamina;
+    private event Action OnPlayerMove;
+    private event Action OnPlayerStop;
     public void Move(Vector2 direction)
     {
+        if (direction.x == 0 && direction.y == 0)
+        {
+            OnPlayerStop?.Invoke();
+            return;
+        }
         _velocity.x = direction.x;
         _velocity.z = direction.y;
         _velocity.y = Physics.gravity.y;
@@ -21,8 +28,18 @@ public class PlayerMovement : MonoBehaviour
 
     public void Look(Vector3 direction)
     {
-        if (direction.x == 0 && direction.z == 0) return;
         direction.y = 0;
         transform.rotation = Quaternion.LookRotation(direction);
+        OnPlayerMove?.Invoke();
+    }
+
+    public void AddOnMoveAction(Action action)
+    {
+        OnPlayerMove += action;
+    }
+
+    public void AddOnStopAction(Action action) 
+    { 
+        OnPlayerStop += action;
     }
 }
