@@ -10,7 +10,8 @@ public class GameplayState : GameplayStateBehaviour
 
     public override void OnStateActivated()
     {
-        
+        stateMachineController.ParentBehaviour.PlayerController.enabled = true;
+        stateMachineController.ParentBehaviour.JoyStick.enabled = true;
     }
 
     public override void OnStateDisabled()
