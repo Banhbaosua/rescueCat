@@ -12,7 +12,7 @@ public class SpeedBoost : MonoBehaviour
     private float _maxStamina;
     private float _currentStamina;
     public float BoostValueTTL => boostValueTTL;
-    public float BoostedValue => _boostedValue;
+    public float BoostedValue => _boostedValue/10f;
     public void Init()
     {
         _maxStamina = movementData.Stamina;
