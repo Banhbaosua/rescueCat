@@ -16,6 +16,8 @@ public class GameplayManager : MonoBehaviour
     [Header("Camera")]
     [SerializeField] CinemachineVirtualCamera speedPhaseCam;
     [SerializeField] CinemachineVirtualCamera gameplayCam;
+    [Header("Spawner")]
+    [SerializeField] List<Spawner> spawners;
     private GameplayStatemachineController stateMachine;
     public SpeedMeterController SpeedMeter => speedMeter;
     public SpeedBoost SpeedBoost => speedBoost;
@@ -29,7 +31,10 @@ public class GameplayManager : MonoBehaviour
     {
         stateMachine = new GameplayStatemachineController();
         stateMachine.Initialise(this, GameplayStatemachineController.GameState.SpeedUpgrade);
-
+        foreach (var spawner in spawners)
+        {
+            spawner.Spawn();
+        }
         //test only
         playerMovement.Data.ResetUpgrade();
     }
