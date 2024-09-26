@@ -31,6 +31,7 @@ public class BoostState : GameplayStateBehaviour
     public override void OnStateDisabled()
     {
         Touch.onFingerDown -= OnFingerDown;
+        speedBoost.enabled = false;
     }
 
     private void OnFingerDown(Finger _)
