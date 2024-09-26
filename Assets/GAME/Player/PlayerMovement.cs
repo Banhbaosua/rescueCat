@@ -17,16 +17,16 @@ public class PlayerMovement : MonoBehaviour
     private event Action OnPlayerStop;
     public void Move(Vector2 direction)
     {
-        if (direction.x == 0 && direction.y == 0)
-        {
-            OnPlayerStop?.Invoke();
-            return;
-        }
         _velocity.x = direction.x;
         _velocity.z = direction.y;
         _velocity.y = Physics.gravity.y;
-        characterController.Move((GetSpeed()/10) * Time.deltaTime * _velocity);
+        characterController.Move(GetSpeed()/10 * Time.deltaTime * _velocity);
         Look(_velocity);
+    }
+
+    public void Stop()
+    {
+        OnPlayerStop?.Invoke();
     }
 
     public float GetSpeed()

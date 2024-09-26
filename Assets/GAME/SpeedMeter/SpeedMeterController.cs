@@ -19,8 +19,6 @@ public class SpeedMeterController : MonoBehaviour
         playerMovement = FindObjectOfType<PlayerMovement>();
         playerMovement.AddOnMoveAction(RotateArrow);
         playerMovement.AddOnStopAction(ResetArrow);
-
-        speedBoost.AddBoostAction(UpdateMaxSpeedText);
     }
 
     void RotateArrow()
@@ -33,7 +31,7 @@ public class SpeedMeterController : MonoBehaviour
         arrow.transform.DORotate(new Vector3(0, 0, originalEulerZ), 0.5f);
     }
     
-    void UpdateMaxSpeedText()
+    public void UpdateMaxSpeedText(float _)
     {
         maxSpeedText.text = playerMovement.GetSpeed().ToString();
     }

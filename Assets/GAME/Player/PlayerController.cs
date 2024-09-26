@@ -25,8 +25,9 @@ public class PlayerController : MonoBehaviour
 
     void StopBehaviour()
     {
-        direction = Vector2.Lerp(direction, Vector2.zero, 2f*Time.deltaTime);
+        direction = Vector2.Lerp(direction, Vector2.zero, 2f * Time.deltaTime);
         playerMovement.Move(direction);
+        playerMovement.Stop();
         playerAnimation.Run(0);
     }
 }

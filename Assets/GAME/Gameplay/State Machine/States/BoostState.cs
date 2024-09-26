@@ -8,6 +8,9 @@ using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 public class BoostState : GameplayStateBehaviour
 {
     private float boostStateTimer;
+    private SpeedBoost speedBoost;
+    private SpeedMeterController speedMeterController;
+    private StaminaBar staminaBar;
     public BoostState(GameplayStatemachineController stateMachineController) : base(stateMachineController)
     {
     }
@@ -18,8 +21,10 @@ public class BoostState : GameplayStateBehaviour
         
         boostStateTimer = 0;
         Touch.onFingerDown += OnFingerDown;
-        stateMachineController.ParentBehaviour.SpeedBoost.Init();
-        stateMachineController.ParentBehaviour.PlayerController.enabled = false;
+        speedBoost.Init();
+        speedBoost.AddBoostAction(speedMeterController.UpdateMaxSpeedText);
+        speedBoost.AddBoostAction(staminaBar.UpdateFill);
+        speedMeterController.enabled = false;
         stateMachineController.ParentBehaviour.JoyStick.enabled = false;
     }
 
@@ -35,7 +40,9 @@ public class BoostState : GameplayStateBehaviour
 
     public override void OnStateRegistered()
     {
-        
+        speedBoost = stateMachineController.ParentBehaviour.SpeedBoost;
+        speedMeterController = stateMachineController.ParentBehaviour.SpeedMeter;
+        staminaBar = stateMachineController.ParentBehaviour.StaminaBar;
     }
 
     public override void Update()

@@ -7,7 +7,7 @@ public class SpeedBoost : MonoBehaviour
 {
     [SerializeField] PlayerMovementData movementData;
     [SerializeField] float boostValueTTL;
-    public event Action OnSpeedBoost;
+    public event Action<float> OnSpeedBoost;
     private float _boostedValue;
     private float _maxStamina;
     private float _currentStamina;
@@ -26,11 +26,11 @@ public class SpeedBoost : MonoBehaviour
         {
             _boostedValue += _maxStamina/10f; 
             _currentStamina -= _maxStamina/10f;
-            OnSpeedBoost?.Invoke();
+            OnSpeedBoost?.Invoke(_currentStamina/_maxStamina);
         }
     }
 
-    public void AddBoostAction(Action action)
+    public void AddBoostAction(Action<float> action)
     {
         OnSpeedBoost += action;
     }

@@ -9,11 +9,13 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] SpeedBoost speedBoost;
     [SerializeField] PlayerController playerController;
     [SerializeField] JoyStick joyStick;
+    [SerializeField] StaminaBar staminaBar;
     private GameplayStatemachineController stateMachine;
     public SpeedMeterController SpeedMeter => speedMeter;
     public SpeedBoost SpeedBoost => speedBoost;
     public PlayerController PlayerController => playerController;
     public JoyStick JoyStick => joyStick;
+    public StaminaBar StaminaBar => staminaBar;
     private void Awake()
     {
         stateMachine = new GameplayStatemachineController();
