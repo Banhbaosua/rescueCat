@@ -7,19 +7,27 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerAnimation playerAnimation;
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] JoyStick joyStick;
-    
-    public void Initialize()
-    {
-        playerMovement.AddOnMoveAction(playerAnimation.Run);
-    }
-    void Start()
-    {
-        Initialize();
-    }
-
+    Vector2 direction;
     private void Update()
     {
-        if(joyStick.Touched)
-            playerMovement.Move(joyStick.Direction);
+        if (joyStick.Touched)
+            MoveBehaviour();
+        else
+            StopBehaviour();
+    }
+
+    void MoveBehaviour()
+    {
+        direction = joyStick.Direction;
+        playerMovement.Move(joyStick.Direction);
+        playerAnimation.Run();
+    }
+
+    void StopBehaviour()
+    {
+        direction = Vector2.Lerp(direction, Vector2.zero, 2f * Time.deltaTime);
+        playerMovement.Move(direction);
+        playerMovement.Stop();
+        playerAnimation.Run(0);
     }
 }

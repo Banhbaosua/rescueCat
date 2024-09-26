@@ -12,9 +12,12 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetFloat("Movement Multiplier", ANIMATORMOVETHRESHOLD, 0.1f, Time.deltaTime);
     }
 
-    public void Idle()
+    public void Run(float value)
     {
         animator.SetBool("Run", false);
-        animator.SetFloat("Movement Multiplier", 0, 0.1f, Time.deltaTime);
+        animator.SetFloat("Movement Multiplier", 
+            Mathf.Lerp(ANIMATORMOVETHRESHOLD,value,0.5f*Time.deltaTime), 
+            0.1f, 
+            Time.deltaTime);
     }
 }

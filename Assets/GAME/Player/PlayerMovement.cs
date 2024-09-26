@@ -2,26 +2,52 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Watermelon;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] CharacterController characterController;
     [SerializeField] PlayerMovementData playerMovementData;
-    [Header("Movement Input")]
-    [SerializeField] JoyStick joyStick;
+    [SerializeField] SpeedBoost speedBoost;
     private Vector3 _velocity;
-    private float _speed => playerMovementData.Speed;
+    private float BoostedSpeed => speedBoost.BoostedValue;
+    private float BaseSpeed => playerMovementData.Speed;
     private float _stamina => playerMovementData.Stamina;
-    public Action OnPlayerMove;
-    public void AddOnMoveAction(Action action)
-    {
-        OnPlayerMove += action;
-    }
+    private event Action OnPlayerMove;
+    private event Action OnPlayerStop;
     public void Move(Vector2 direction)
     {
         _velocity.x = direction.x;
         _velocity.z = direction.y;
-        characterController.Move(_speed * Time.deltaTime * _velocity);
+        _velocity.y = Physics.gravity.y;
+        characterController.Move(GetSpeed()/10 * Time.deltaTime * _velocity);
+        Look(_velocity);
+    }
+
+    public void Stop()
+    {
+        OnPlayerStop?.Invoke();
+    }
+
+    public float GetSpeed()
+    {
+        return BaseSpeed + BoostedSpeed;
+    }
+
+    public void Look(Vector3 direction)
+    {
+        direction.y = 0;
+        transform.rotation = Quaternion.LookRotation(direction);
         OnPlayerMove?.Invoke();
+    }
+
+    public void AddOnMoveAction(Action action)
+    {
+        OnPlayerMove += action;
+    }
+
+    public void AddOnStopAction(Action action) 
+    { 
+        OnPlayerStop += action;
     }
 }
