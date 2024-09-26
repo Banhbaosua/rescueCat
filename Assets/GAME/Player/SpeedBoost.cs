@@ -7,6 +7,7 @@ public class SpeedBoost : MonoBehaviour
 {
     [SerializeField] PlayerMovementData movementData;
     [SerializeField] float boostPhaseTime;
+    [SerializeField] GameObject tapToBoostText;
     public event Action<float> OnSpeedBoost;
     private float _boostedValue;
     private float _maxStamina;
@@ -18,16 +19,23 @@ public class SpeedBoost : MonoBehaviour
         _maxStamina = movementData.Stamina;
         _currentStamina = _maxStamina;
         _boostedValue = 0;
+        tapToBoostText.SetActive(true);
     }
 
     public void Boost()
     {
+        tapToBoostText.SetActive(false);
         if (_currentStamina > 0)
         {
             _boostedValue += _maxStamina/10f; 
             _currentStamina -= _maxStamina/10f;
             OnSpeedBoost?.Invoke(_currentStamina/_maxStamina);
         }
+    }
+
+    public void OnDisable()
+    {
+        tapToBoostText.SetActive(false);
     }
 
     public void AddBoostAction(Action<float> action)

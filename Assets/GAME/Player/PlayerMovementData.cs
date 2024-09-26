@@ -15,4 +15,9 @@ public class PlayerMovementData : ScriptableObject
     {
         upgradedSpeed += speed;
     }
+
+    public  void ResetUpgrade()
+    {
+        upgradedSpeed = 0;
+    }
 }

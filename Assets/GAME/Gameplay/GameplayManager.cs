@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,9 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] JoyStick joyStick;
     [SerializeField] StaminaBar staminaBar;
     [SerializeField] PlayerMovement playerMovement;
+    [Header("Camera")]
+    [SerializeField] CinemachineVirtualCamera speedPhaseCam;
+    [SerializeField] CinemachineVirtualCamera gameplayCam;
     private GameplayStatemachineController stateMachine;
     public SpeedMeterController SpeedMeter => speedMeter;
     public SpeedBoost SpeedBoost => speedBoost;
@@ -20,15 +24,15 @@ public class GameplayManager : MonoBehaviour
     public StaminaBar StaminaBar => staminaBar;
     public SpeedUpgrade SpeedUpgrade => speedUpgrade;
     public PlayerMovement PlayerMovement => playerMovement;
+    public CinemachineVirtualCamera SpeedPhaseCam => speedPhaseCam;
     private void Awake()
     {
         stateMachine = new GameplayStatemachineController();
-        stateMachine.Initialise(this, GameplayStatemachineController.GameState.BoostStart);
-    }
-    private void Start()
-    {
-    }
+        stateMachine.Initialise(this, GameplayStatemachineController.GameState.SpeedUpgrade);
 
+        //test only
+        playerMovement.Data.ResetUpgrade();
+    }
     private void Update()
     {
         stateMachine.ActiveStateBehaviour.Update();
