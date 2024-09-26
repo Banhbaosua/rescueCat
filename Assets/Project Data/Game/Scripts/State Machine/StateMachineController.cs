@@ -29,7 +29,6 @@ namespace Watermelon
 
             // Register and initialise states
             RegisterStates();
-
             // Enable default state
             SetState(defaultState);
         }
