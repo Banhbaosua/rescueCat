@@ -12,9 +12,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _velocity;
     private float BoostedSpeed => speedBoost.BoostedValue;
     private float BaseSpeed => playerMovementData.Speed;
+    private float UpgradeSpeed => playerMovementData.UpgradedSpeed;
     private float _stamina => playerMovementData.Stamina;
     private event Action OnPlayerMove;
     private event Action OnPlayerStop;
+    public PlayerMovementData Data => playerMovementData;
     public void Move(Vector2 direction)
     {
         _velocity.x = direction.x;
@@ -31,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float GetSpeed()
     {
-        return BaseSpeed + BoostedSpeed;
+        return BaseSpeed + BoostedSpeed + UpgradeSpeed;
     }
 
     public void Look(Vector3 direction)
