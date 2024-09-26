@@ -6,12 +6,12 @@ using UnityEngine;
 public class SpeedBoost : MonoBehaviour
 {
     [SerializeField] PlayerMovementData movementData;
-    [SerializeField] float boostValueTTL;
+    [SerializeField] float boostPhaseTime;
     public event Action<float> OnSpeedBoost;
     private float _boostedValue;
     private float _maxStamina;
     private float _currentStamina;
-    public float BoostValueTTL => boostValueTTL;
+    public float BoostPhaseTime => boostPhaseTime;
     public float BoostedValue => _boostedValue/10f;
     public void Init()
     {

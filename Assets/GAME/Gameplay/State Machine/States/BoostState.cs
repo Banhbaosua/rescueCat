@@ -47,7 +47,7 @@ public class BoostState : GameplayStateBehaviour
 
     public override void Update()
     {
-        if (boostStateTimer > stateMachineController.ParentBehaviour.SpeedBoost.BoostValueTTL)
+        if (boostStateTimer > stateMachineController.ParentBehaviour.SpeedBoost.BoostPhaseTime)
             stateMachineController.SetState(GameplayStatemachineController.GameState.GamePlay);
         boostStateTimer+= Time.deltaTime;
     }
