@@ -5,10 +5,8 @@ using UnityEngine;
 public class PlayerMovementData : ScriptableObject
 {
     [SerializeField] float speed;
-    [SerializeField] float speedBoost;
     [SerializeField] float stamina;
     public float Speed => speed;
-    public float SpeedBoost => speedBoost;
     public float Stamina => stamina;
 
     public void SpeedInc(float speed)
