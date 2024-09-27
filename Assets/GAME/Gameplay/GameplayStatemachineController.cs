@@ -10,6 +10,8 @@ public class GameplayStatemachineController : StateMachineController<GameplayMan
         RegisterState(new GameplayState(this), GameState.GamePlay);
         RegisterState(new BoostState(this),GameState.BoostStart);
         RegisterState(new SpeedUpgradeState(this), GameState.SpeedUpgrade);
+        RegisterState(new GameLoseState(this), GameState.GameLose);
+        RegisterState(new GameWinState(this), GameState.GameWin);
     }
 
     public enum GameState
@@ -18,5 +20,7 @@ public class GameplayStatemachineController : StateMachineController<GameplayMan
         SpeedUpgrade = 1,
         BoostStart = 2,
         GamePlay = 3,
+        GameLose = 4,
+        GameWin = 5,
     }
 }
