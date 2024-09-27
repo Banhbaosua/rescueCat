@@ -26,6 +26,7 @@ public class BoostState : GameplayStateBehaviour
         speedBoost.AddBoostAction(staminaBar.UpdateFill);
         speedMeterController.enabled = false;
         stateMachineController.ParentBehaviour.JoyStick.enabled = false;
+        stateMachineController.ParentBehaviour.TsunamiBehaviour.enabled = true;
     }
 
     public override void OnStateDisabled()

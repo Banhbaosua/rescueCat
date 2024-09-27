@@ -32,7 +32,6 @@ public class CatCatcher : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(cancelTokenByCat.Count);
         if(cancelTokenByCat.Count > 0)
             catchZone.gameObject.SetActive(true);
         else
