@@ -6,8 +6,15 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] PlayerAnimation playerAnimation;
     [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] CatCatcher catCatcher;
     [SerializeField] JoyStick joyStick;
+    [Header("Cat position on head")]
+    [SerializeField] List<Transform> headPos;
     Vector2 direction;
+    private void Awake()
+    {
+        catCatcher.Init(headPos);
+    }
     private void Update()
     {
         if (joyStick.Touched)

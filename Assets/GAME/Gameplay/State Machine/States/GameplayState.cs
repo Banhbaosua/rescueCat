@@ -12,6 +12,7 @@ public class GameplayState : GameplayStateBehaviour
     {
         stateMachineController.ParentBehaviour.PlayerController.enabled = true;
         stateMachineController.ParentBehaviour.JoyStick.enabled = true;
+        stateMachineController.ParentBehaviour.CatCatcher.enabled = true;
     }
 
     public override void OnStateDisabled()
