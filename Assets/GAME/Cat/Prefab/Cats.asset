@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34487739f66bcd648bb0690f690d3ae1, type: 3}
   m_Name: Cats
   m_EditorClassIdentifier: 
-  objects: []
+  objects:
+  - {fileID: 3779739734013929612, guid: 4077703198744b4489cbc5ddebb956bd, type: 3}
+  - {fileID: -63635539113820109, guid: a4c1169ce19d331499dce3bf6f497226, type: 3}
+  - {fileID: -4755651390435475744, guid: 917b229c5a187744389a87c81e0cd38a, type: 3}
+  - {fileID: -3038653861530855054, guid: f858faaa1d463704cbdef7937a027e37, type: 3}
+  - {fileID: -3093367584512289750, guid: 17cff4e5056443f4a80c64b1020251f6, type: 3}
+  - {fileID: -7010995472544370964, guid: ae4fa81228ed4bc499c336a5fc3f85d1, type: 3}

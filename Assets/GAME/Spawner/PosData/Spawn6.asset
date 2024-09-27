@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d7f335abf9762340bc96d90a63e1b7c, type: 3}
   m_Name: Spawn6
   m_EditorClassIdentifier: 
-  center: {x: -3, y: 0, z: 9}
+  center: {x: 1, y: 0, z: 37}
   radius: 2
