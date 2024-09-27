@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Nurse
   - Visitor
+  - Destination
   layers:
   - Default
   - TransparentFX
@@ -15,11 +16,11 @@ TagManager:
   - UI
   - Land
   - Interactable
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Cat
+  - FinishLine
+  - CatTrigger
+  - PlayerTrigger
   - 
   - 
   - 

@@ -6,6 +6,7 @@ using Watermelon;
 
 public class GameplayManager : MonoBehaviour
 {
+    [Header("Player Movement")]
     [SerializeField] SpeedMeterController speedMeter;
     [SerializeField] SpeedBoost speedBoost;
     [SerializeField] SpeedUpgrade speedUpgrade;
@@ -16,6 +17,10 @@ public class GameplayManager : MonoBehaviour
     [Header("Camera")]
     [SerializeField] CinemachineVirtualCamera speedPhaseCam;
     [SerializeField] CinemachineVirtualCamera gameplayCam;
+    [Header("Spawner")]
+    [SerializeField] List<Spawner> spawners;
+    [Header("Cat Catcher")]
+    [SerializeField] CatCatcher catCatcher;
     private GameplayStatemachineController stateMachine;
     public SpeedMeterController SpeedMeter => speedMeter;
     public SpeedBoost SpeedBoost => speedBoost;
@@ -25,11 +30,15 @@ public class GameplayManager : MonoBehaviour
     public SpeedUpgrade SpeedUpgrade => speedUpgrade;
     public PlayerMovement PlayerMovement => playerMovement;
     public CinemachineVirtualCamera SpeedPhaseCam => speedPhaseCam;
+    public CatCatcher CatCatcher => catCatcher;
     private void Awake()
     {
         stateMachine = new GameplayStatemachineController();
         stateMachine.Initialise(this, GameplayStatemachineController.GameState.SpeedUpgrade);
-
+        foreach (var spawner in spawners)
+        {
+            spawner.Spawn();
+        }
         //test only
         playerMovement.Data.ResetUpgrade();
     }
