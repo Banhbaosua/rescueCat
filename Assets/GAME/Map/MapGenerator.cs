@@ -21,29 +21,27 @@ public class MapGenerator : MonoBehaviour
     // Start is called before the first frame update
     public void GenerateMaps()
     {
-        if (generatedMap.Count == 0)
+        if(generatedMap.Count>0)
         {
-            for (int i = 0; i < 10; i++)
+            for(int i = 0; i < generatedMap.Count; i++) 
             {
-                var map = Instantiate(baseMap);
-                map.transform.position += Vector3.right * PERMAPOFFSET_X * (i + 1);
-                var nmsurface = map.GetComponentInChildren<NavMeshSurface>();
-                var new_minBound = minBound.position + Vector3.right*PERMAPOFFSET_X* (i+1);
-                var new_maxBound = maxBound.position + Vector3.right*PERMAPOFFSET_X* (i+1);
-                var data = new MapWrapper(map.transform,
-                    nmsurface,
-                    new_minBound,
-                    new_maxBound);
-                generatedMap.Add(data);
-                SpawnProp(data, i + 3);
+                Destroy(generatedMap[i].Map.gameObject);
             }
-            return;
+            generatedMap.Clear();
         }
-
-        for(int i = 0;i < 10;i++) 
+        for (int i = 0; i < 10; i++)
         {
-            var map = generatedMap[i];
-            SpawnProp(map,i+3);
+            var map = Instantiate(baseMap);
+            map.transform.position += Vector3.right * PERMAPOFFSET_X * (i + 1);
+            var nmsurface = map.GetComponentInChildren<NavMeshSurface>();
+            var new_minBound = minBound.position + Vector3.right*PERMAPOFFSET_X* (i+1);
+            var new_maxBound = maxBound.position + Vector3.right*PERMAPOFFSET_X* (i+1);
+            var data = new MapWrapper(map.transform,
+                nmsurface,
+                new_minBound,
+                new_maxBound);
+            generatedMap.Add(data);
+            SpawnProp(data, i + 3);
         }
     }
 
@@ -72,6 +70,7 @@ public class MapGenerator : MonoBehaviour
         {
             var propPrefab = objToGenerate[Random.Range(0, objToGenerate.Count)];
             var prop = Instantiate(propPrefab, map.NmSurface.transform);
+            Debug.Log(map.MinBound);
             var newPos = await FindAvailableSpawnPos(prop.GetComponent<Collider>(), map.MinBound, map.MaxBound);
             prop.transform.position = newPos;
         }
@@ -80,17 +79,16 @@ public class MapGenerator : MonoBehaviour
 
     async UniTask<Vector3> FindAvailableSpawnPos(Collider propCol,Vector3 minBound, Vector3 maxBound)
     {
-        var radius = propCol.bounds.extents.magnitude;
-        Debug.Log(radius);
+        var radius = propCol.bounds.extents.magnitude+0.25f;
         var pos_x = Random.Range(minBound.x, maxBound.x);
         var pos_z = Random.Range(minBound.z, maxBound.z);
-        var hits = Physics.OverlapSphere(new Vector3(pos_x, 0, pos_z), radius);
+        var hits = Physics.OverlapSphere(new Vector3(pos_x, 0, pos_z), radius,1<<13);
         while (hits.Length > 0)
         {
             Debug.Log("collide");
             pos_x = Random.Range(minBound.x, maxBound.x);
             pos_z = Random.Range(minBound.z, maxBound.z);
-            hits = Physics.OverlapSphere(new Vector3(pos_x, 0, pos_z), radius);
+            hits = Physics.OverlapSphere(new Vector3(pos_x, 0, pos_z), radius, 1 << 13);
             await UniTask.WaitForFixedUpdate();
         }
         return new(pos_x,0,pos_z);
@@ -103,12 +101,14 @@ public class MapWrapper
     public readonly Vector3 MaxBound;
     public readonly NavMeshSurface NmSurface;
     public readonly Transform Map;
+    public readonly List<Transform> props;
     public MapWrapper(Transform map,NavMeshSurface nmSuface, Vector3 minBound, Vector3 maxBound)
     {
         Map = map;
         NmSurface = nmSuface;
         MinBound = minBound;
         MaxBound = maxBound;
+        props = new List<Transform>();
     }
 }
 #endif

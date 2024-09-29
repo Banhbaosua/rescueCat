@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1308404644073768863}
   m_Layer: 0
-  m_Name: Props
+  m_Name: TreeProps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 937341801773515762}
   - component: {fileID: 7346659238714404470}
   - component: {fileID: 6641995946879000123}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pickup
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   - component: {fileID: 3399914216271895662}
   - component: {fileID: 2844009273295724600}
   - component: {fileID: 8114456882488912219}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Police
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -930,6 +930,7 @@ Transform:
   - {fileID: 878364230790401425}
   - {fileID: 3556281558962331703}
   - {fileID: 8569122892390381406}
+  - {fileID: 3996812491268260422}
   m_Father: {fileID: 8584298156040068430}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3523319813172569428
@@ -2553,7 +2554,7 @@ GameObject:
   - component: {fileID: 2091947749827967748}
   - component: {fileID: 2128142445847129890}
   - component: {fileID: 3010847650339227546}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Taxi
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -2681,6 +2682,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5664394731287101862}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4072661557835612944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3996812491268260422}
+  m_Layer: 0
+  m_Name: Props
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3996812491268260422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072661557835612944}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6681435450190269662}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4217791386656439359
 GameObject:
@@ -4682,7 +4714,7 @@ GameObject:
   - component: {fileID: 2819691279353450712}
   - component: {fileID: 5872615923945162279}
   - component: {fileID: 3095437456315531681}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Hatchback
   m_TagString: Car
   m_Icon: {fileID: 0}
