@@ -5,7 +5,7 @@ using Cysharp.Threading.Tasks;
 using Unity.AI.Navigation;
 using UnityEngine.PlayerLoop;
 using UnityEditor;
-
+#if (UNITY_EDITOR) 
 public class MapGenerator : MonoBehaviour
 {
     [SerializeField] Transform minBound;
@@ -111,3 +111,4 @@ public class MapWrapper
         MaxBound = maxBound;
     }
 }
+#endif
