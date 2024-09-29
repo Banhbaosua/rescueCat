@@ -54,14 +54,14 @@ namespace Watermelon
 
                 IsStartInitialized = true;
 
-                if (loadingScene)
-                {
-                    GameLoading.LoadGameScene();
-                }
-                else
-                {
-                    GameLoading.SimpleLoad();
-                }
+                //if (loadingScene)
+                //{
+                //    GameLoading.LoadGameScene();
+                //}
+                //else
+                //{
+                //    GameLoading.SimpleLoad();
+                //}
             }
         }
 

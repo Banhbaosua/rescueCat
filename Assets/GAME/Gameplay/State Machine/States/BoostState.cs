@@ -11,6 +11,7 @@ public class BoostState : GameplayStateBehaviour
     private SpeedBoost speedBoost;
     private SpeedMeterController speedMeterController;
     private StaminaBar staminaBar;
+    private PlayerMovement playerMovement;
     public BoostState(GameplayStatemachineController stateMachineController) : base(stateMachineController)
     {
     }
@@ -18,15 +19,14 @@ public class BoostState : GameplayStateBehaviour
     public override void OnStateActivated()
     {
         EnhancedTouchSupport.Enable();
-        
+        stateMachineController.ParentBehaviour.JoyStick.enabled = false;
+        stateMachineController.ParentBehaviour.TsunamiBehaviour.enabled = true;
+        speedBoost.enabled = true;
         boostStateTimer = 0;
         Touch.onFingerDown += OnFingerDown;
         speedBoost.Init();
         speedBoost.AddBoostAction(speedMeterController.UpdateMaxSpeedText);
         speedBoost.AddBoostAction(staminaBar.UpdateFill);
-        speedMeterController.enabled = false;
-        stateMachineController.ParentBehaviour.JoyStick.enabled = false;
-        stateMachineController.ParentBehaviour.TsunamiBehaviour.enabled = true;
     }
 
     public override void OnStateDisabled()
@@ -45,6 +45,7 @@ public class BoostState : GameplayStateBehaviour
         speedBoost = stateMachineController.ParentBehaviour.SpeedBoost;
         speedMeterController = stateMachineController.ParentBehaviour.SpeedMeter;
         staminaBar = stateMachineController.ParentBehaviour.StaminaBar;
+        playerMovement = stateMachineController.ParentBehaviour.PlayerMovement;
     }
 
     public override void Update()

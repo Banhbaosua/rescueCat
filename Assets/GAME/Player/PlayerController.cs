@@ -10,10 +10,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] JoyStick joyStick;
     [Header("Cat position on head")]
     [SerializeField] List<Transform> headPos;
+    public PlayerAnimation PlayerAnimation => playerAnimation;
     Vector2 direction;
     private void Awake()
     {
         catCatcher.Init(headPos);
+        direction = Vector2.zero;
     }
     private void Update()
     {
@@ -27,7 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         direction = joyStick.Direction;
         playerMovement.Move(joyStick.Direction);
-        playerAnimation.Run();
+        playerAnimation.Run(1f);
     }
 
     void StopBehaviour()

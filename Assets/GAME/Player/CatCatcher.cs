@@ -54,13 +54,11 @@ public class CatCatcher : MonoBehaviour
         else
             CatchTypeHoldBehaviour(cat);
 
-        cancelTokenByCat.Remove(cat);
     }
 
     CatchType RandomCatchBehaviour()
     {
         var random = Random.Range(0, catHolds.Count<headPos.Count?2:0);
-        Debug.Log(random);
         if(random == 0)
         {
             return CatchType.Follow;
@@ -83,6 +81,8 @@ public class CatCatcher : MonoBehaviour
         }
         cat.SetSpeed(2.5f);
         catFollows.Add(cat);
+        cancelTokenByCat.Remove(cat);
+
     }
 
     void CatchTypeHoldBehaviour(CatBehaviour cat)
@@ -91,14 +91,16 @@ public class CatCatcher : MonoBehaviour
         cat.Hold();
         var parent = headPos[catHolds.Count].transform;
         cat.transform.parent = parent;
-        cat.transform.DOLocalMove(Vector3.zero, 1f);
-        cat.transform.rotation = Quaternion.identity;
+        cat.transform.position = parent.position;
+        cat.transform.rotation = parent.rotation;
         catHolds.Add(cat);
+        cancelTokenByCat.Remove(cat);
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<CatBehaviour>() != null)
+        if (other.gameObject.layer == LayerMask.NameToLayer("Cat"))
         {
             var cat = other.GetComponent<CatBehaviour>();
             if (cat.IsCatched || cancelTokenByCat.ContainsKey(cat)) return;

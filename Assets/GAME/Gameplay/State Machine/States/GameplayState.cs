@@ -6,6 +6,8 @@ public class GameplayState : GameplayStateBehaviour
 {
     private TsunamiBehaviour tsunami;
     private FinishLine finishLine;
+    private PlayerMovement playerMovement;
+    private SpeedMeterController speedMeterController;
     public GameplayState(GameplayStatemachineController stateMachineController) : base(stateMachineController)
     {
     }
@@ -15,9 +17,13 @@ public class GameplayState : GameplayStateBehaviour
         stateMachineController.ParentBehaviour.PlayerController.enabled = true;
         stateMachineController.ParentBehaviour.JoyStick.enabled = true;
         stateMachineController.ParentBehaviour.CatCatcher.enabled = true;
+        stateMachineController.ParentBehaviour.PlayerController.PlayerAnimation.enabled = true;
         tsunami.enabled = true;
         tsunami.OnTsunamiHit += Lose;
         finishLine.LineReach += Win;
+        speedMeterController.Init(playerMovement);
+        playerMovement.AddOnMoveAction(speedMeterController.RotateArrow);
+        playerMovement.AddOnStopAction(speedMeterController.ResetArrow);
     }
 
     public override void OnStateDisabled()
@@ -33,6 +39,8 @@ public class GameplayState : GameplayStateBehaviour
     {
         tsunami = stateMachineController.ParentBehaviour.TsunamiBehaviour;
         finishLine = stateMachineController.ParentBehaviour.FinishLine;
+        playerMovement = stateMachineController.ParentBehaviour.PlayerMovement;
+        speedMeterController = stateMachineController.ParentBehaviour.SpeedMeter;
     }
 
     public override void Update()

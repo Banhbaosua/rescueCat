@@ -52,6 +52,7 @@ public class GameplayManager : MonoBehaviour
         }
         //test only
         playerMovement.Data.ResetUpgrade();
+        Application.targetFrameRate = 60;
     }
     private void Update()
     {
